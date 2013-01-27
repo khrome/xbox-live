@@ -1,4 +1,4 @@
-where-parser.js
+xbox-live.js
 ==============
 An NPM for fetching xbox live player data
 
