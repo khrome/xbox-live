@@ -1,0 +1,35 @@
+{
+    "name": "xbox-live",
+    "homepage": "https://github.com/khrome/xbox-live",
+    "version": "0.0.1-alpha",
+    "main": "xbox-live.js",
+    "description": "A utility for fetching xbox live gamer data",
+    "keywords": [
+        "xbox",
+        "gamertag",
+        "api"
+    ],
+    "author": "Abbey Hawk Sparrow <@khrome> (http://patternweaver.com)",
+    "contributors": [],
+    "bugs": {
+        "url": "https://github.com/khrome/xbox-live/issues"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:khrome/xbox-live.git"
+    },
+    "dependencies": {
+        "prime": "*",
+        "prime-ext": "*"
+    },
+    "devDependencies": {
+        "mocha": "*",
+        "should": "*"
+    },
+    "optionalDependencies": {
+    },
+    "engines": {
+        "node": "*"
+    }
+}
