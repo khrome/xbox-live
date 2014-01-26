@@ -1,9 +1,8 @@
 var should = require("should");
 var request = require("request");
-var type = require('prime/util/type');
 var XBoxLive = require('./xbox-live');
-var gamertag = "Major+Nelson";
-var game = 1096157139; //'Gun'
+var gamertag = "khr0me"; // me, since they killed Major+Nelson's game history
+var game = '4b5907dc';//1264125916; //'Tropico 4'
 
 describe('XBoxLive', function(){
     var api;
@@ -13,12 +12,12 @@ describe('XBoxLive', function(){
     })
     
     it('fetches profile', function(done){
-        this.timeout(5000);
+        this.timeout(10000);
         api.fetch('profile', gamertag, function(err, data){
             should.not.exist(err);
-            should.exist(data.Gamertag);
-            should.exist(data.GamerScore);
-            data.IsValid.should.equal(1);
+            should.exist(data);
+            should.exist(data.gamertag);
+            should.exist(data.gamerscore);
             done();
         });
     });
@@ -27,9 +26,11 @@ describe('XBoxLive', function(){
         this.timeout(10000);
         api.fetch('games', gamertag, function(err, data){
             should.not.exist(err);
-            data.GameCount.should.be.above(0);
-            data.PlayedGames.length.should.be.above(0);
-            console.log(data);
+            should.exist(data);
+            console.log(JSON.stringify(data));
+            data.totalgames.should.be.above(0);
+            data.games.length.should.be.above(0);
+            //console.log(JSON.stringify(data));
             done();
         });
     });
@@ -38,9 +39,10 @@ describe('XBoxLive', function(){
         this.timeout(10000);
         api.fetch('achievements', gamertag, game, function(err, data){
             should.not.exist(err);
-            data.Title.should.equal('Gun');
-            data.EarnedGamerScore.should.be.above(0);
-            data.Achievements.length.should.be.above(0);
+            should.exist(data);
+            data.title.should.equal('Tropico 4');
+            data.earnedgamerscore.should.be.above(0);
+            data.achievements.length.should.be.above(0);
             done();
         });
     });
@@ -49,8 +51,9 @@ describe('XBoxLive', function(){
         this.timeout(10000);
         api.fetch('friends', gamertag, function(err, data){
             should.not.exist(err);
-            data.TotalFriends.should.be.above(0);
-            data.Friends.length.should.be.above(0);
+            should.exist(data);
+            data.total.should.be.above(0);
+            data.friends.length.should.be.above(0);
             done();
         });
     });

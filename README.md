@@ -36,7 +36,7 @@ or achievements (for a particular xbl game id):
         //do stuff
     });
     
-In an attempt to be less prone to breakage there are two sources: the default, xboxleaders.com and xboxapi.com, which seems to enforce stricter limits. If more pop up, I will likely add them, too.
+In an attempt to be less prone to breakage there are two sources: the default, xboxleaders.com and xboxapi.com, which seems to enforce stricter limits. If more pop up, I will likely add them, too. xboxleaders has been updated to their new format, but be warned: their service has become extremely flakey and when it fails, it claims the user doesn't exist on XBL :P but it's up-to-date with less dependencies.
     
 
 Testing
