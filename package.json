@@ -20,7 +20,9 @@
         "url": "git@github.com:khrome/xbox-live.git"
     },
     "dependencies": {
-        "async-arrays": "*"
+        "async-arrays": "*",
+        "request": "*",
+        "underscore": "*"
     },
     "devDependencies": {
         "mocha": "*",
