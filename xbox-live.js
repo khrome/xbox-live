@@ -50,10 +50,15 @@ XBoxLive.prototype.fetch = function(type, gamertag, game, callback){
     };
     if (this.options && this.options.request) req = _.extend(req, this.options.request);
     request(req, function (error, response, body) {
-        var result = JSON.parse(body);
-        if(ob.sources[ob.source].postProcess) result = ob.sources[ob.source].postProcess(result);
-        if(result.code && result.message) callback(result);
-        else callback(error, result);
+        try {
+            var result = JSON.parse(body);
+            if(ob.sources[ob.source].postProcess) result = ob.sources[ob.source].postProcess(result);
+            if(result.code && result.message) callback(result);
+            else callback(error, result);
+        }
+        catch (E) {
+            callback (E);
+        }
     });
 };
 module.exports = XBoxLive;
