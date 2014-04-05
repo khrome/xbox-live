@@ -1,9 +1,13 @@
 var array = require('async-arrays');
-var _ = require('underscore');
+var extend = require('extend');
 var request = require('request');
 
+var globalDefaults = {
+
+};
+
 function XBoxLive(options){
-			 this.options = options;
+    this.options = extend( (options || {}), globalDefaults);
     this.source = 'xboxleaders';
     this.sources = {
         xboxleaders : {
@@ -48,16 +52,14 @@ XBoxLive.prototype.fetch = function(type, gamertag, game, callback){
         method: 'GET', 
         uri: uri
     };
-    if (this.options && this.options.request) req = _.extend(req, this.options.request);
     request(req, function (error, response, body) {
-        try {
+        try{
             var result = JSON.parse(body);
             if(ob.sources[ob.source].postProcess) result = ob.sources[ob.source].postProcess(result);
             if(result.code && result.message) callback(result);
             else callback(error, result);
-        }
-        catch (E) {
-            callback (E);
+        }catch(err){
+            callback(err);
         }
     });
 };
