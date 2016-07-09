@@ -10,16 +10,16 @@ var disabledProxy = function(){
 
 var gameCache = {};
 
-function MyAuthenticatedService(options){
+function GamerCardService(options){
     XBoxService.apply(this, arguments);
     this.url = 'http://gamercard.xbox.com/en-US/{gamertag}.card';
 }
 
-MyAuthenticatedService.prototype = clone(XBoxService.prototype);
-MyAuthenticatedService.prototype.constructor = MyAuthenticatedService;
+GamerCardService.prototype = clone(XBoxService.prototype);
+GamerCardService.prototype.constructor = GamerCardService;
 
 
-MyAuthenticatedService.prototype.profile = function(options, callback){
+GamerCardService.prototype.profile = function(options, callback){
     this.fetch({
         gamertag : options.gamertag
     }, function(err, data){
@@ -31,7 +31,7 @@ MyAuthenticatedService.prototype.profile = function(options, callback){
     });
 }
 
-MyAuthenticatedService.prototype.games = function(options, callback){
+GamerCardService.prototype.games = function(options, callback){
     if(!(options.id || options.gameid)){
         return callback(undefined, Object.keys(gameCache).map(function(id){ return gameCache[id] }));   
     }
@@ -39,7 +39,7 @@ MyAuthenticatedService.prototype.games = function(options, callback){
     callback(game?undefined:new Error('Game not found'), game);
 }
 
-MyAuthenticatedService.prototype.parseResponse = function(response, body, callback){
+GamerCardService.prototype.parseResponse = function(response, body, callback){
     parseXML(body, function (err, resp) {
         var result = {};
         var cls = resp.html.body[0].div[0]['$']['class'];
@@ -80,11 +80,11 @@ MyAuthenticatedService.prototype.parseResponse = function(response, body, callba
     });
 }
 
-MyAuthenticatedService.prototype.friends = function(options, callback){
+GamerCardService.prototype.friends = function(options, callback){
     throw new Error('Gamertag endpoint does not support requesting the friends');
 }
 
-MyAuthenticatedService.prototype.acheivements = function(options, callback){
+GamerCardService.prototype.acheivements = function(options, callback){
     throw new Error('Gamertag endpoint does not support requesting the acheivements');
 }
-module.exports = MyAuthenticatedService;
+module.exports = GamerCardService;
