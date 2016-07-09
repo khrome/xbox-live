@@ -1,7 +1,7 @@
 {
     "name": "xbox-live",
     "homepage": "https://github.com/khrome/xbox-live",
-    "version": "0.0.3-alpha",
+    "version": "0.1.0",
     "main": "xbox-live.js",
     "description": "A utility for fetching xbox live gamer data, supporting multiple sources",
     "keywords": [
@@ -20,9 +20,10 @@
         "url": "git@github.com:khrome/xbox-live.git"
     },
     "dependencies": {
-        "async-arrays": "*",
+        "extended-emitter": "*",
         "request": "*",
-        "extend": "*"
+        "extend": "*",
+        "xml2js":"*"
     },
     "devDependencies": {
         "mocha": "*",
