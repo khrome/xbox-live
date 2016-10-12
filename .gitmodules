@@ -1,0 +1,3 @@
+[submodule "games/destiny"]
+	path = games/destiny
+	url = https://github.com/khrome/BungieNetPlatform
