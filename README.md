@@ -54,7 +54,7 @@ Just grab an instance of the API
 
 	var api = new XBoxLive.Games.Destiny(<api key>);
 	
-- `api.user.searchUsers({get:{q:<query string>}}, callback)` search for a string among users, returns a list of users
+- `api.user.search(<username>, callback)` search for a string among users, returns a list of users
 
 These calls require options `{membershipType:<type>, membershipId: <id>}` but you may substitute `username` for `membershipId` anywhere you find it in the api. legal types are: `xbox`, `psn`
 
@@ -70,6 +70,14 @@ These calls require options `{membershipType:<type>, membershipId: <id>, charact
 - `api.destiny.character.progression(options, callback)` get a given character's progression
 
 There are other calls available (auto-generated from [docs](https://github.com/khrome/BungieNetPlatform/blob/master/wiki-builder/data/api-data.json) which seem to be out of date) and I will manually craft other endpoints as I figure out the [rat's nest of an API](https://www.bungie.net/en/Clan/Post/39966/85087279/0/0/1).
+
+###Overwatch
+
+Grab all the public stats for a handle:
+
+api.query(<xbox-live username>, callback)
+
+which returns summaries for each character as well as a global summary.
 
 
 
@@ -101,6 +109,10 @@ Testing
 Run the tests at the project root with:
 
     mocha
+    
+Run a specific suite (one of `gamer-card`, `overwatch` or `destiny`) with:
+
+    mocha	test/<suite>
     
 If you want to run the destiny tests, you must set `DESTINY_API_KEY` in your environment
     

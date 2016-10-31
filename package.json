@@ -1,14 +1,15 @@
 {
     "name": "xbox-live",
     "homepage": "https://github.com/khrome/xbox-live",
-    "version": "1.0.1",
+    "version": "1.2.0",
     "main": "xbox-live.js",
-    "description": "A utility for fetching xbox live gamer data, supporting multiple sources",
+    "description": "A utility for fetching xbox live game and gamer data",
     "keywords": [
         "xbox",
         "gamertag",
         "api",
-        "destiny"
+        "destiny",
+        "overwatch"
     ],
     "author": "Abbey Hawk Sparrow <@khrome> (http://patternweaver.com)",
     "contributors": [],
@@ -22,6 +23,7 @@
     },
     "dependencies": {
         "extended-emitter": "*",
+        "async-arrays": "*",
         "request": "*",
         "extend": "*",
         "xml2js":"*"

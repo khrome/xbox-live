@@ -58,6 +58,15 @@ var Destiny = function(options){
             ob[group][name] = accessor;
         });
     });
+    ob.user.search = function(name, cb){
+        return ob.user.searchUsers({
+            get:{ q : name }
+        }, function(err, results){
+            if(err) return callback(err);
+            if(results[0]) options.membershipId = results[0].membershipId;
+            ob.query(urt, options, callback);
+        });
+    }
     ob.user.accountSummary = function(options, cb){
         return ob.query('/Destiny/{membershipType}/Account/{destinyMembershipId}/Summary/', merge(ob.options, options), cb);
     }
