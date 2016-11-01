@@ -1,7 +1,7 @@
 {
     "name": "xbox-live",
     "homepage": "https://github.com/khrome/xbox-live",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "main": "xbox-live.js",
     "description": "A utility for fetching xbox live game and gamer data",
     "keywords": [
