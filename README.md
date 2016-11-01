@@ -43,7 +43,7 @@ Destiny Provides a full range of queries across the entire game engine. Currentl
 
 ###[Overwatch](docs/overwatch.md)
 
-Destiny provides combat summaries on a percharacter basis (as well as inclusing global totals)
+Destiny provides combat summaries on a per-character basis (as well as including global totals)
     
 
 Testing
